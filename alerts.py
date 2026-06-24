@@ -14,6 +14,7 @@ def verificar_alertas(cursor):
     cursor.execute(sql_comando_busca)
     leituras = cursor.fetchall()
 
+    equipamentos_alerta = {}
     for leitura in leituras:
         tem_alerta = False
         alerta = f'ALERTA — {leitura["nome"]:<30}'
@@ -29,8 +30,10 @@ def verificar_alertas(cursor):
             alerta += f' | vibração: {leitura["vibracao"]:.2f} Hz (máx: {VIBRA_MAX:.2f} Hz)'
             tem_alerta = True
 
-        if tem_alerta: print(alerta)
-
+        if tem_alerta: 
+            print(alerta)
+            equipamentos_alerta[leitura["id"]] = True
+    return equipamentos_alerta
 def conecta_db():
     conn = sqlite3.connect(NOME_DB)
     conn.row_factory = sqlite3.Row
