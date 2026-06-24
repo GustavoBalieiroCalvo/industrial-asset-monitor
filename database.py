@@ -25,7 +25,6 @@ def inicializa_banco():
     cursor.execute(sql_equipamentos)
     cursor.execute(sql_leituras)
     conn.commit()
-    conn.close()
     return conn
 
 def main():
