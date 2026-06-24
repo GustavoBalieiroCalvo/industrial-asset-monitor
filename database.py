@@ -10,7 +10,7 @@ sql_equipamentos = 'CREATE TABLE IF NOT EXISTS equipamentos (' \
 sql_leituras = 'CREATE TABLE IF NOT EXISTS leituras (' \
 'id INTEGER PRIMARY KEY AUTOINCREMENT,' \
 'equipamento_id INTEGER,'\
-'timestamp REAL,'\
+'timestamp TEXT,'\
 'temperatura REAL,'\
 'pressao REAL,'\
 'vibracao REAL)'
@@ -26,6 +26,7 @@ def main():
     cursor.execute(sql_equipamentos)
     cursor.execute(sql_leituras)
     conn.commit()
+    conn.close()
 
 
 if __name__ == '__main__':
