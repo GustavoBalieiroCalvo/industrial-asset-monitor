@@ -26,9 +26,3 @@ def inicializa_banco():
     cursor.execute(sql_leituras)
     conn.commit()
     return conn
-
-def main():
-    inicializa_banco()
-
-if __name__ == '__main__':
-    main()

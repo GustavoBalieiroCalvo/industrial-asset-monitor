@@ -27,17 +27,3 @@ def gerar_relatorio(cursor):
 
         else:
             print(f'{equipamento["nome"]:<30} | {equipamento["MAX(leituras.timestamp)"]:<30} | OK')
-
-
-def main():
-    conn = conecta_banco()
-    cursor = conn.cursor()
-    gerar_relatorio(cursor)
-
-
-
-
-
-
-if __name__ == '__main__':
-    main()

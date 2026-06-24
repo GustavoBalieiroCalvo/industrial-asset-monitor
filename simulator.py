@@ -20,7 +20,7 @@ def gerar_leitura(conn, cursor):
         print("Equipamentos inseridos")
         cursor.execute(sql_comando)
         equipamentos_db = cursor.fetchall()
-        print(equipamentos_db)
+        # print(equipamentos_db)
 
     for equipamento in equipamentos_db:
         id_equipamento = equipamento[0]
@@ -34,33 +34,8 @@ def gerar_leitura(conn, cursor):
     print('Motor de simulação gerou dados')
     cursor.execute("SELECT * FROM leituras")
     leituas = cursor.fetchall()
-    print(leituas)
+    # print(leituas)
 
-    
-
-def main():
-    conn = sqlite3.connect('fabrica.db')
-    cursor = conn.cursor()
-
-    
-
-    # try:
-    gerar_leitura(conn, cursor)
-    
-    # except:
-    #     print('Erro no motor de simulação')
-    
-    
-    conn.close()
-
-
-
-
-
-
-
-if __name__ == '__main__':
-    main()
 
 
 

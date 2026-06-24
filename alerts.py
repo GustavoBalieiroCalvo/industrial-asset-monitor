@@ -38,15 +38,3 @@ def conecta_db():
     conn = sqlite3.connect(NOME_DB)
     conn.row_factory = sqlite3.Row
     return conn
-
-def main():
-    conn = conecta_db()
-    cursor = conn.cursor()
-    verificar_alertas(cursor)
-    conn.close()
-
-
-
-
-if __name__ == '__main__':
-    main()

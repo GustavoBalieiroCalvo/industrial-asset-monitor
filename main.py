@@ -1,3 +1,4 @@
+import sqlite3
 from database import inicializa_banco
 from simulator import gerar_leitura
 from report import gerar_relatorio
@@ -7,6 +8,7 @@ from report import gerar_relatorio
 
 def main():
     conn = inicializa_banco()
+    conn.row_factory = sqlite3.Row
     cursor = conn.cursor()
     gerar_leitura(conn, cursor)
     gerar_relatorio(cursor)
